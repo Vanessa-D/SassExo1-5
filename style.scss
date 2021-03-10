@@ -1,0 +1,50 @@
+// Exercice 1: Créer des variables contenant des couleurs et les appliquer
+$main_color: darkslategray;
+$secondary_color: darksalmon;
+$third_colour: darkolivegreen;
+// Exercice 2: Créer plusieurs mixins permettant de changer la taille, la police, et la couleur du texte
+@mixin first_style {
+    font-size: 2em;
+    font-family: 'Montserrat' ;
+    color: #3F3844;
+}
+// Exercice 3: Appliquer aux balises li du paragraphe "par_1" une couleur et un text-decoration
+// // @mixin + créer une class dans html dans la liste du premier paragraphe
+@mixin list_style {
+    color: burlywood;
+    text-decoration: underline;
+}
+// Exercice 4: Créer une classe de votre choix avec les options de votre choix 
+// puis créer une deuxième classe étendant la première et lui rajouter un text-decoration
+.strong_word {
+    font-size: 2.5em;
+    background-color: cadetblue;
+}
+// Exercice 4 et 5: Créer un hover sur un paragraphe puis lui appliquer un text-decoration et une couleur
+.last_paragraph {
+    @extend .strong_word;
+    text-decoration: overline;
+    // Nesting / Imbrication des pseudo-formats avec "&:"
+    &:hover {
+        text-decoration: underline;
+        color: peru;
+    }
+}
+// Application des variables
+h1 {
+    color: $main_color;
+}
+h3 {
+    color: $secondary_color;
+}
+h4 {
+    color: $third_colour;
+}
+// Application @mixin
+.corps {
+    @include first_style;
+}
+// Application @mixin
+.first_list li {
+    @include list_style;
+}
